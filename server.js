@@ -7,6 +7,8 @@ app.get('/', (req, res) => res.send('Hello from Render CI/CD!'));
 
 app.get('/health', (req, res) => res.status(200).send('Ok'));
 
+app.get('/*', (req, res) => res.status(200).send('Oops! Page Not Found.'));
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
