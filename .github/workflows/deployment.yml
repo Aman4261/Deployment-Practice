@@ -1,4 +1,4 @@
-name: Node.js App Deploymeny-Practice
+name: Node.js App Deployment-Practice
 
 on:
   push:
