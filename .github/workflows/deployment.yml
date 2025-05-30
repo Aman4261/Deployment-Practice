@@ -1,11 +1,11 @@
-name: Node.js App Deployment-Practice
+name: Node.js App Deploymeny-Practice
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,3 +19,10 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Trigger Deploy on Render
+        env:
+          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          echo "Triggering deploy via Render Deploy Hook..."
+          curl -X POST $DEPLOY_HOOK
